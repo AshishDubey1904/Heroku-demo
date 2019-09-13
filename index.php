@@ -32,7 +32,7 @@
 <?php
   //echo 'This is Index Page';
 
-  $sql = 'SELECT * FROM Contact';
+  $sql = 'SELECT * FROM salesforce.Contact';
   $stmt = $pdo->prepare($sql);
   $stmt->execute();
   $rowCount = $stmt->rowCount();
