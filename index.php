@@ -40,12 +40,32 @@
   //$instmt->execute();
   
   $rowCount = $stmt->rowCount();
+  ?>
+  <h1>Contact List from Sales Force</h1><hr/>
+  <table>
+  <thead>
+  <th>ID</th><th>Fisrt Name</th><th>Last Name</th><th>Email</th><th>Created Date</th>
+    </thead>
+    <tbody>
+  <?php
   if(isset($rowCount) and $rowCount>0){
      $details = $stmt->fetchAll();
-    echo 'Output:<br/>';
-    print_r ($details);
+      foreach($details as $row){
+  ?>
+      <tr>
+        <td><?php echo $row->sfid;?></td>
+        <td><?php echo $row->firstname;?></td>
+        <td><?php echo $row->lastname;?></td>
+        <td><?php echo $row->email;?></td>
+        <td><?php echo $row->createddate;?></td>
+      </tr>
+  <?php
+      }
     
   }
+  ?>
+    </thead>
+  </table>
  
   //$indetails = $instmt->fetch();
 
