@@ -82,15 +82,15 @@
                         <div class="col-md-12">
                           <div class="form-group">
                             <label>First Name:</label>
-                            <input type="text" name="first_name" value="<?php echo $row->firstname;?>">
+                            <input type="text" name="first_name" class="form-control" value="<?php echo $row->firstname;?>">
                           </div>
                           <div class="form-group">
                             <label>Last Name:</label>
-                             <input type="text" name="last_name" value="<?php echo $row->lastname;?>" required="required">
+                             <input type="text" name="last_name" class="form-control" value="<?php echo $row->lastname;?>" required="required">
                           </div>
                           <div class="form-group">
                             <label>Email:</label>
-                            <input type="email" name="email" value="<?php echo $row->email;?>">
+                            <input type="email" name="email" class="form-control" value="<?php echo $row->email;?>">
                           </div>
                           
                         </div>
