@@ -35,18 +35,23 @@
   $sql = 'SELECT * FROM salesforce.Contact';
   $stmt = $pdo->prepare($sql);
   $stmt->execute();
-  $insql = 'INSERT INTO salesforce.Contact(lastname) VALUES(\'HEROKUINSERT913\')';
-  $instmt = $pdo->prepare($insql);
-  $instmt->execute();
+  //$insql = 'INSERT INTO salesforce.Contact(lastname) VALUES(\'HEROKUINSERT913\')';
+  //$instmt = $pdo->prepare($insql);
+  //$instmt->execute();
   
   $rowCount = $stmt->rowCount();
-  $details = $stmt->fetch();
-  $indetails = $instmt->fetch();
+  if(isset($rowCount) and $rowCount>0){
+     $details = $stmt->fetch();
+    print_r ($details);
+    
+  }
+ 
+  //$indetails = $instmt->fetch();
 
-  print_r ($details);
-  print_r ($rowCount);
-  print_r ($insql);
-  print_r ($indetails);
+  //
+  //print_r ($rowCount);
+  //print_r ($insql);
+  //print_r ($indetails);
 ?>
 
 </body>
