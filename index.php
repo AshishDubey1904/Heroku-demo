@@ -2,13 +2,18 @@
 <?php include ('config/config.php')?>
 
 <?php
+  $status='';
 if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
   $insql = "update salesforce.Contact set firstname='$_POST[firstname]', lastname='$_POST[lastname]', email='$_POST[email]' where sfid='$_POST[sfid]' ";
   $instmt = $pdo->prepare($insql);
   if($instmt->execute()){
-    echo 'record updated successfully';
+   $status='<div class="alert alert-success">
+              <strong>Success!</strong> Record updated successfully now!
+          </div>';
   }else{
-    echo 'update issue, ask to admin!';
+   $status='<div class="alert alert-danger">
+  <strong>Danger!</strong> Update issue, ask to admin!
+</div>';
   }
 }
 ?>
@@ -56,6 +61,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
   $rowCount = $stmt->rowCount();
   ?>
   <section>
+    <?php if(isset($status) and !empty($status)){?>
+      <div class="row">
+        <?php echo $status;?>
+      </div>
+   <?php } ?>
     <div class="row">
       <div class="col-md-12">
         <h1>Contact List from Sales Force</h1><hr/>
@@ -92,11 +102,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
                         <div class="col-md-12">
                           <div class="form-group">
                             <label>First Name:</label>
-                            <input type="text" name="first_name" class="form-control" value="<?php echo $row->firstname;?>">
+                            <input type="text" name="firstname" class="form-control" value="<?php echo $row->firstname;?>">
                           </div>
                           <div class="form-group">
                             <label>Last Name:</label>
-                             <input type="text" name="last_name" class="form-control" value="<?php echo $row->lastname;?>" required="required">
+                             <input type="text" name="lastname" class="form-control" value="<?php echo $row->lastname;?>" required="required">
                           </div>
                           <div class="form-group">
                             <label>Email:</label>
