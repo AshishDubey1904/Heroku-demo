@@ -9,6 +9,12 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
   
+   <script>
+    $(document).ready(function() {
+    $('#mytable').DataTable();
+} );
+  </script>
+  
 </head>
   
   <?php include ('config/db.php')?>
@@ -95,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
       <div class="col-md-12">
         <h1>Contact List from Sales Force</h1><hr/>
         <a href="javascript:void()"  data-toggle="modal" data-target="#myModal" class="btn btn-primary">NEW Contact</a><hr/>
-          <table class="table">
+          <table class="table" id="mytable">
           <thead>
           <th>ID</th><th>Fisrt Name</th><th>Last Name</th><th>Email</th><th>Created Date</th><th>Options</th>
             </thead>
@@ -201,10 +207,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
               </div>
             </div>
   
-  <script>
-    $(document).ready(function() {
-    $('table.display').DataTable();
-} );
-  </script>
+ 
 </body>
 </html>
