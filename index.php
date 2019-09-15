@@ -4,7 +4,7 @@
 <?php
   $status='';
 if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['New_record'])){
-  $insql = "insert into salesforce.Contact(lastname) VALUES('$_POST[firstname]','$_POST[lastname]','$_POST[email]') ";
+  $insql = "insert into salesforce.Contact(firstname,lastname,email) VALUES('$_POST[firstname]','$_POST[lastname]','$_POST[email]') ";
   $instmt = $pdo->prepare($insql);
   if($instmt->execute()){
    $status='<div class="alert alert-success  alert-dismissible fade in">
