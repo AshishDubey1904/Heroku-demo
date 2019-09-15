@@ -3,6 +3,25 @@
 
 <?php
   $status='';
+if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['New_record'])){
+  $insql = "insert into salesforce.Contact(lastname) VALUES('$_POST[firstname]','$_POST[lastname]','$_POST[email]') ";
+  $instmt = $pdo->prepare($insql);
+  if($instmt->execute()){
+   $status='<div class="alert alert-success  alert-dismissible fade in">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <strong>Success!</strong> Record saved successfully now!
+          </div>';
+  }else{
+   $status='<div class="alert alert-danger  alert-dismissible fade in">
+   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Danger!</strong> Update issue, ask to admin!
+</div>';
+  }
+}
+?>
+
+<?php
+  $status='';
 if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
   $insql = "update salesforce.Contact set firstname='$_POST[firstname]', lastname='$_POST[lastname]', email='$_POST[email]' where sfid='$_POST[sfid]' ";
   $instmt = $pdo->prepare($insql);
@@ -73,6 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
     <div class="row">
       <div class="col-md-12">
         <h1>Contact List from Sales Force</h1><hr/>
+        <a href="javascript:void()"  data-toggle="modal" data-target="#myModal" class="btn btn-primary">NEW Contact</a><hr/>
           <table class="table">
           <thead>
           <th>ID</th><th>Fisrt Name</th><th>Last Name</th><th>Email</th><th>Created Date</th><th>Options</th>
@@ -142,6 +162,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
   </section>
 
 ?>
-  
+  <div id="myModal" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Edit Contact</h4>
+                  </div>
+                  <form method="post" action="https://dmdelhi.herokuapp.com/">
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label>First Name:</label>
+                            <input type="text" name="firstname" class="form-control" value="">
+                          </div>
+                          <div class="form-group">
+                            <label>Last Name:</label>
+                             <input type="text" name="lastname" class="form-control" value="" required="required">
+                          </div>
+                          <div class="form-group">
+                            <label>Email:</label>
+                            <input type="email" name="email" class="form-control" value="">
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <input type="submit" name="New_record" value="Save" class="btn btn-success">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </form>
+                </div>
+
+              </div>
+            </div>
 </body>
 </html>
