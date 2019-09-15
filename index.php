@@ -7,11 +7,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
   $insql = "update salesforce.Contact set firstname='$_POST[firstname]', lastname='$_POST[lastname]', email='$_POST[email]' where sfid='$_POST[sfid]' ";
   $instmt = $pdo->prepare($insql);
   if($instmt->execute()){
-   $status='<div class="alert alert-success">
+   $status='<div class="alert alert-success  alert-dismissible fade in">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
               <strong>Success!</strong> Record updated successfully now!
           </div>';
   }else{
-   $status='<div class="alert alert-danger">
+   $status='<div class="alert alert-danger  alert-dismissible fade in">
+   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   <strong>Danger!</strong> Update issue, ask to admin!
 </div>';
   }
@@ -63,7 +65,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
   <section>
     <?php if(isset($status) and !empty($status)){?>
       <div class="row">
+        <div class="col-md-12">
         <?php echo $status;?>
+        </div>
       </div>
    <?php } ?>
     <div class="row">
