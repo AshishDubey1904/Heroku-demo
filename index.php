@@ -3,8 +3,13 @@
 
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
-  print_r($_POST);
-  die();
+  $insql = "update salesforce.Contact set firstname='$_POST[firstname]', lastname='$_POST[lastname]', email='$_POST[email]' where sfid='$_POST[sfid]' ";
+  $instmt = $pdo->prepare($insql);
+  if($instmt->execute()){
+    echo 'record updated successfully';
+  }else{
+    echo 'update issue, ask to admin!';
+  }
 }
 ?>
 
