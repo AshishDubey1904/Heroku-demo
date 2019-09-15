@@ -46,7 +46,7 @@
         <h1>Contact List from Sales Force</h1><hr/>
           <table class="table">
           <thead>
-          <th>ID</th><th>Fisrt Name</th><th>Last Name</th><th>Email</th><th>Created Date</th>
+          <th>ID</th><th>Fisrt Name</th><th>Last Name</th><th>Email</th><th>Created Date</th><th>Options</th>
             </thead>
             <tbody>
           <?php
@@ -60,7 +60,29 @@
                 <td><?php echo $row->lastname;?></td>
                 <td><?php echo $row->email;?></td>
                 <td><?php echo $row->createddate;?></td>
+                <td><a href="javascript:void()"  data-toggle="modal" data-target="#myModal-<?php echo $row->sfid;?>" class="btn btn-primary">Edit</a>
               </tr>
+              
+              <!-- Modal -->
+            <div id="myModal-<?php echo $row->sfid;?>" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
           <?php
               }
 
