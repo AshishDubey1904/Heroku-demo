@@ -41,7 +41,7 @@
   
   $rowCount = $stmt->rowCount();
   if(isset($rowCount) and $rowCount>0){
-     $details = $stmt->fetch();
+     $details = $stmt->fetchAll();
     echo 'Output:<br/>';
     print_r ($details);
     
