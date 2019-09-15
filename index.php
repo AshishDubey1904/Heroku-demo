@@ -1,4 +1,17 @@
-<?php include ('config/db.php')?>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Heroku Test</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  
+</head>
+  
+  <?php include ('config/db.php')?>
 <?php include ('config/config.php')?>
 
 <?php
@@ -38,17 +51,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
   }
 }
 ?>
-
-<html>
-<head>
-  <title>Heroku Test</title>
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="css/index.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
- 
-</head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <a class="navbar-brand" href="<?php echo ROOT_URL; ?>">Heroku Test</a>
@@ -198,5 +200,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
 
               </div>
             </div>
+  
+  <script>
+    $(document).ready(function() {
+    $('table.display').DataTable();
+} );
+  </script>
 </body>
 </html>
