@@ -6,6 +6,7 @@
   <title>Heroku Test</title>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -30,8 +31,6 @@
 </nav>
 
 <?php
-  //echo 'This is Index Page';
-
   $sql = 'SELECT * FROM salesforce.Contact';
   $stmt = $pdo->prepare($sql);
   $stmt->execute();
@@ -41,39 +40,40 @@
   
   $rowCount = $stmt->rowCount();
   ?>
-  <h1>Contact List from Sales Force</h1><hr/>
-  <table>
-  <thead>
-  <th>ID</th><th>Fisrt Name</th><th>Last Name</th><th>Email</th><th>Created Date</th>
-    </thead>
-    <tbody>
-  <?php
-  if(isset($rowCount) and $rowCount>0){
-     $details = $stmt->fetchAll();
-      foreach($details as $row){
-  ?>
-      <tr>
-        <td><?php echo $row->sfid;?></td>
-        <td><?php echo $row->firstname;?></td>
-        <td><?php echo $row->lastname;?></td>
-        <td><?php echo $row->email;?></td>
-        <td><?php echo $row->createddate;?></td>
-      </tr>
-  <?php
-      }
-    
-  }
-  ?>
-    </thead>
-  </table>
- 
-  //$indetails = $instmt->fetch();
+  <section>
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Contact List from Sales Force</h1><hr/>
+          <table class="table">
+          <thead>
+          <th>ID</th><th>Fisrt Name</th><th>Last Name</th><th>Email</th><th>Created Date</th>
+            </thead>
+            <tbody>
+          <?php
+          if(isset($rowCount) and $rowCount>0){
+             $details = $stmt->fetchAll();
+              foreach($details as $row){
+          ?>
+              <tr>
+                <td><?php echo $row->sfid;?></td>
+                <td><?php echo $row->firstname;?></td>
+                <td><?php echo $row->lastname;?></td>
+                <td><?php echo $row->email;?></td>
+                <td><?php echo $row->createddate;?></td>
+              </tr>
+          <?php
+              }
 
-  //
-  //print_r ($rowCount);
-  //print_r ($insql);
-  //print_r ($indetails);
+          }
+          ?>
+            </thead>
+          </table>
+    </div>
+    </div>
+  </section>
+
 ?>
-
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </body>
 </html>
