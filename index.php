@@ -1,6 +1,13 @@
 <?php include ('config/db.php')?>
 <?php include ('config/config.php')?>
 
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
+  print_r($_POST);
+  die();
+}
+?>
+
 <html>
 <head>
   <title>Heroku Test</title>
@@ -69,14 +76,12 @@
               <!-- Modal -->
             <div id="myModal-<?php echo $row->sfid;?>" class="modal fade" role="dialog">
               <div class="modal-dialog">
-
                 <!-- Modal content-->
                 <div class="modal-content">
                   <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Edit Contact</h4>
                   </div>
-                  <form method="post" action="<?php echo $_SERVER[PHP_SELF];?>">
+                  <form method="post" action="https://dmdelhi.herokuapp.com/">
                     <div class="modal-body">
                       <div class="row">
                         <div class="col-md-12">
