@@ -79,25 +79,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
 </nav>
 
 <?php
-   $insql = 'CREATE TABLE Postgrescontact AS (SELECT * FROM salesforce.contact WHERE 1=2);';
-   $instmt = $pdo->prepare($insql);
-   $instmt->execute();
-   $insql1 = 'INSERT INTO Postgrescontact(lastname) VALUES(\'HEROKUINSERT in postgres\')';
-   $instmt1 = $pdo->prepare($insql1);
-   $instmt1->execute();
+   //$insql = 'CREATE TABLE Postgrescontact AS (SELECT * FROM salesforce.contact WHERE 1=2);';
+   //$instmt = $pdo->prepare($insql);
+   //$instmt->execute();
+   //$insql1 = 'INSERT INTO Postgrescontact(lastname) VALUES(\'HEROKUINSERT in postgres\')';
+   //$instmt1 = $pdo->prepare($insql1);
+   //$instmt1->execute();
  
   $sql = 'SELECT * FROM Postgrescontact';
   $stmt = $pdo->prepare($sql);
   $stmt->execute();
  
-  // $insql = 'INSERT INTO Postgrescontact(lastname) VALUES(\'HEROKUINSERT in postgres\')';
- // $instmt = $pdo->prepare($insql);
- // $instmt->execute();
- // $insql1 = 'SELECT * FROM Postgrescontact';
- // $instmt1 = $pdo->prepare($insql1);
- // $instmt1->execute();
- // $details = $instmt1->fetchAll();
- // print_r($details);
   
   $rowCount = $stmt->rowCount();
   ?>
@@ -142,7 +134,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
                   <div class="modal-header">
                     <h4 class="modal-title">Edit Contact</h4>
                   </div>
-                  <form method="post" action="https://dmdelhi.herokuapp.com/">
+                  <form method="post" action="https://dmdelhi.herokuapp.com/contact.php">
                     <div class="modal-body">
                       <div class="row">
                         <div class="col-md-12">
@@ -197,7 +189,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
                   <div class="modal-header">
                     <h4 class="modal-title">Edit Contact</h4>
                   </div>
-                  <form method="post" action="https://dmdelhi.herokuapp.com/">
+                  <form method="post" action="https://dmdelhi.herokuapp.com/contact.php">
                     <div class="modal-body">
                       <div class="row">
                         <div class="col-md-12">
