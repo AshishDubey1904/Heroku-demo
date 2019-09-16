@@ -169,7 +169,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
     </div>
   </section>
 
-?>
+
   <div id="myModal" class="modal fade" role="dialog">
               <div class="modal-dialog">
                 <!-- Modal content-->
