@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['New_record'])){
 <?php
   $status='';
 if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
-  $insql = "update Postgrescontact set firstname='$_POST[firstname]', lastname='$_POST[lastname]', email='$_POST[email]', mailingcity='$_POST[mailingcity]', mobilephone='$_POST[mobilephone]' where sfid='$_POST[sfid]' ";
+  $insql = "update Postgrescontact set firstname='$_POST[firstname]', lastname='$_POST[lastname]', email='$_POST[email]', mailingcity='$_POST[mailingcity]', mobilephone='$_POST[mobilephone]' where id='$_POST[id]' ";
   $instmt = $pdo->prepare($insql);
   if($instmt->execute()){
    $status='<div class="alert alert-success  alert-dismissible fade in">
@@ -162,7 +162,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
                       </div>
                     </div>
                     <div class="modal-footer">
-                      <input type="hidden" name="sfid" value="<?php echo $row->sfid;?>">
+                      <input type="hidden" name="id" value="<?php echo $row->id;?>">
                       <input type="submit" name="Edit_record" value="Update" class="btn btn-success">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
