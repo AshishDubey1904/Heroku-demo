@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
 </nav>
 
 <?php
-  $insql = 'Delete * from TABLE Postgrescontact';
+  $insql = 'Delete from TABLE Postgrescontact';
   $instmt = $pdo->prepare($insql);
   $instmt->execute();
   $insql1 = 'ALTER TABLE Postgrescontact ADD primaryid INT PRIMARY KEY AUTO_INCREMENT';
