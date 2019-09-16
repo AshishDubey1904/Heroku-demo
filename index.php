@@ -83,15 +83,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
   $sql = 'SELECT * FROM salesforce.Contact';
   $stmt = $pdo->prepare($sql);
   $stmt->execute();
-  //$insql = 'INSERT INTO salesforce.Contact(lastname) VALUES(\'HEROKUINSERT913\')';
-  //$instmt = $pdo->prepare($insql);
-  //$instmt->execute();'Select * Into <DestinationTableName> From <SourceTableName> Where 1 = 2'
-  $insql = 'Delete from salesforce.Contact where id = \'79\' ';
+  $insql = 'INSERT INTO Postgrescontact(lastname) VALUES(\'HEROKUINSERT in postgres\')';
   $instmt = $pdo->prepare($insql);
   $instmt->execute();
-  $insql1 = 'Select Top 0 * into Postgrescontact from salesforce.Contact';
+  $insql1 = 'SELECT * FROM Postgrescontact';
   $instmt1 = $pdo->prepare($insql1);
   $instmt1->execute();
+  $details = $instmt1->fetchAll();
+  print_r($details);
   
   $rowCount = $stmt->rowCount();
   ?>
