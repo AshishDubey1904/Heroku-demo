@@ -72,19 +72,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
         <a class="nav-link" href="<?php echo ROOT_URL; ?>about">About</a>
       </li>
       <li>
-        <a class="nav-link" href="<?php echo ROOT_URL; ?>contact">Contact Us</a>
+        <a class="nav-link" href="<?php echo ROOT_URL; ?>contact">Contact on Postgres</a>
       </li>
     </ul>
       </div>
 </nav>
 
 <?php
-  $insql = 'Delete from Postgrescontact';
-  $instmt = $pdo->prepare($insql);
-  $instmt->execute();
-  //$insql1 = 'ALTER TABLE Postgrescontact ADD primaryid INT PRIMARY KEY AUTO_INCREMENT';
-  //$instmt1 = $pdo->prepare($insql1);
-  //$instmt1->execute(); 
+  //$insql = 'Delete from Postgrescontact';
+  //$instmt = $pdo->prepare($insql);
+  //$instmt->execute();
+  $insql1 = 'ALTER TABLE Postgrescontact ADD primaryid INT Identity(1, 1)';
+  $instmt1 = $pdo->prepare($insql1);
+  $instmt1->execute(); 
   //$insql = 'CREATE TABLE Postgrescontact AS (SELECT * FROM salesforce.contact WHERE 1=2);';
    //$instmt = $pdo->prepare($insql);
    //$instmt->execute();
