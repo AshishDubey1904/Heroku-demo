@@ -23,7 +23,7 @@
 <?php
   $status='';
 if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['New_record'])){
-  $insql = "insert into salesforce.Contact(firstname,lastname,email) VALUES('$_POST[firstname]','$_POST[lastname]','$_POST[email]') ";
+  $insql = "insert into salesforce.Contact(firstname,lastname,email,mailingcity,mobilephone) VALUES('$_POST[firstname]','$_POST[lastname]','$_POST[email]','$_POST[mailingcity]','$_POST[mobilephone]') ";
   $instmt = $pdo->prepare($insql);
   if($instmt->execute()){
    $status='<div class="alert alert-success  alert-dismissible fade in">
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['New_record'])){
 <?php
   $status='';
 if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
-  $insql = "update salesforce.Contact set firstname='$_POST[firstname]', lastname='$_POST[lastname]', email='$_POST[email]' where sfid='$_POST[sfid]' ";
+  $insql = "update salesforce.Contact set firstname='$_POST[firstname]', lastname='$_POST[lastname]', email='$_POST[email]', mailingcity='$_POST[mailingcity]', mobilephone='$_POST[mobilephone]' where sfid='$_POST[sfid]' ";
   $instmt = $pdo->prepare($insql);
   if($instmt->execute()){
    $status='<div class="alert alert-success  alert-dismissible fade in">
@@ -103,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
         <a href="javascript:void()"  data-toggle="modal" data-target="#myModal" class="btn btn-primary">NEW Contact</a><hr/>
           <table class="table" id="mytable">
           <thead>
-          <th>ID</th><th>Fisrt Name</th><th>Last Name</th><th>Email</th><th>Created Date</th><th>Options</th>
+          <th>ID</th><th>Fisrt Name</th><th>Last Name</th><th>Email</th><th>Created Date</th><th>Mailing City</th><th>Mobile</th><th>Options</th>
             </thead>
             <tbody>
           <?php
@@ -117,6 +117,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
                 <td><?php echo $row->lastname;?></td>
                 <td><?php echo $row->email;?></td>
                 <td><?php echo $row->createddate;?></td>
+                <td><?php echo $row->mailingcity;?></td>
+                <td><?php echo $row->mobilephone;?></td>
                 <td><a href="javascript:void()"  data-toggle="modal" data-target="#myModal-<?php echo $row->sfid;?>" class="btn btn-primary">Edit</a>
               </tr>
               
@@ -144,7 +146,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
                             <label>Email:</label>
                             <input type="email" name="email" class="form-control" value="<?php echo $row->email;?>">
                           </div>
-                          
+                          <div class="form-group">
+                            <label>Email:</label>
+                            <input type="email" name="email" class="form-control" value="<?php echo $row->mailingcity;?>">
+                          </div>
+                          <div class="form-group">
+                            <label>Email:</label>
+                            <input type="email" name="email" class="form-control" value="<?php echo $row->mobilephone;?>">
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -192,6 +201,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
                           <div class="form-group">
                             <label>Email:</label>
                             <input type="email" name="email" class="form-control" value="">
+                          </div>
+                          <div class="form-group">
+                            <label>Mailing City:</label>
+                            <input type="text" name="mailingcity" class="form-control" value="">
+                          </div>
+                          <div class="form-group">
+                            <label>Mobilephone:</label>
+                            <input type="number" name="mobilephone" class="form-control" value="">
                           </div>
                           
                         </div>
