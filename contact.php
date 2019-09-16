@@ -134,7 +134,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
                   <div class="modal-header">
                     <h4 class="modal-title">Edit Contact</h4>
                   </div>
-                  <form method="post" action="https://dmdelhi.herokuapp.com/contact.php">
+                  <form method="post" action="https://dmdelhi.herokuapp.com/contact">
                     <div class="modal-body">
                       <div class="row">
                         <div class="col-md-12">
@@ -189,7 +189,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
                   <div class="modal-header">
                     <h4 class="modal-title">Edit Contact</h4>
                   </div>
-                  <form method="post" action="https://dmdelhi.herokuapp.com/contact.php">
+                  <form method="post" action="https://dmdelhi.herokuapp.com/contact">
                     <div class="modal-body">
                       <div class="row">
                         <div class="col-md-12">
