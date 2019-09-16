@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['New_record'])){
 <?php
   $status='';
 if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
-  $insql = "update Postgrescontact set firstname='$_POST[firstname]', lastname='$_POST[lastname]', email='$_POST[email]', mailingcity='$_POST[mailingcity]', mobilephone='$_POST[mobilephone]' where id='$_POST[id]' ";
+  $insql = "update Postgrescontact set firstname='$_POST[firstname]', lastname='$_POST[lastname]', email='$_POST[email]', mailingcity='$_POST[mailingcity]', mobilephone='$_POST[mobilephone]' where lastname='$_POST[lastname]' ";
   $instmt = $pdo->prepare($insql);
   if($instmt->execute()){
    $status='<div class="alert alert-success  alert-dismissible fade in">
@@ -118,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
           <?php
           if(isset($rowCount) and $rowCount>0){
              $details = $stmt->fetchAll();
-            print_r($details);
+             //print_r($details);
               foreach($details as $row){
           ?>
               <tr>
