@@ -147,12 +147,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
                             <input type="email" name="email" class="form-control" value="<?php echo $row->email;?>">
                           </div>
                           <div class="form-group">
-                            <label>Email:</label>
-                            <input type="email" name="email" class="form-control" value="<?php echo $row->mailingcity;?>">
+                            <label>mailing city:</label>
+                            <input type="text" name="mailingcity" class="form-control" value="<?php echo $row->mailingcity;?>">
                           </div>
                           <div class="form-group">
-                            <label>Email:</label>
-                            <input type="email" name="email" class="form-control" value="<?php echo $row->mobilephone;?>">
+                            <label>mobilephone:</label>
+                            <input type="number" name="mobilephone" class="form-control" value="<?php echo $row->mobilephone;?>">
                           </div>
                         </div>
                       </div>
