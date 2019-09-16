@@ -112,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
         <a href="javascript:void()"  data-toggle="modal" data-target="#myModal" class="btn btn-primary">NEW Contact</a><hr/>
           <table class="table" id="mytable">
           <thead>
-          <th>ID</th><th>Fisrt Name</th><th>Last Name</th><th>Email</th><th>Created Date</th><th>Mailing City</th><th>Mobile</th><th>Options</th>
+          <th>Fisrt Name</th><th>Last Name</th><th>Email</th><th>Created Date</th><th>Mailing City</th><th>Mobile</th><th>Options</th>
             </thead>
             <tbody>
           <?php
@@ -122,7 +122,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
               foreach($details as $row){
           ?>
               <tr>
-                <td><?php echo $row->sfid;?></td>
                 <td><?php echo $row->firstname;?></td>
                 <td><?php echo $row->lastname;?></td>
                 <td><?php echo $row->email;?></td>
