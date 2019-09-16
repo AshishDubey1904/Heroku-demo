@@ -79,13 +79,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
 </nav>
 
 <?php
-   //$insql = 'CREATE TABLE Postgrescontact AS (SELECT * FROM salesforce.contact WHERE 1=2);';
+  $insql = 'Delete * from TABLE Postgrescontact';
+  $instmt = $pdo->prepare($insql);
+  $instmt->execute();
+  $insql1 = 'ALTER TABLE Postgrescontact ADD primaryid INT PRIMARY KEY AUTO_INCREMENT';
+  $instmt1 = $pdo->prepare($insql1);
+  $instmt1->execute(); 
+  //$insql = 'CREATE TABLE Postgrescontact AS (SELECT * FROM salesforce.contact WHERE 1=2);';
    //$instmt = $pdo->prepare($insql);
    //$instmt->execute();
    //$insql1 = 'INSERT INTO Postgrescontact(lastname) VALUES(\'HEROKUINSERT in postgres\')';
    //$instmt1 = $pdo->prepare($insql1);
    //$instmt1->execute();
- 
   $sql = 'SELECT * FROM Postgrescontact';
   $stmt = $pdo->prepare($sql);
   $stmt->execute();
