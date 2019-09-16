@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
         <a class="nav-link" href="<?php echo ROOT_URL; ?>about">About</a>
       </li>
       <li>
-        <a class="nav-link" href="<?php echo ROOT_URL; ?>contact">Contact Us</a>
+        <a class="nav-link" href="<?php echo ROOT_URL; ?>contact">Contact On Postgres</a>
       </li>
     </ul>
       </div>
