@@ -125,8 +125,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
           <?php
           if(isset($rowCount) and $rowCount>0){
              $details = $stmt->fetchAll();
-             //print_r($details);
-              foreach($details as $row){
+             print_r($details);
+             foreach($details as $row){
           ?>
               <tr>
                 <td><?php echo $row->firstname;?></td>
