@@ -125,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
           <?php
           if(isset($rowCount) and $rowCount>0){
              $details = $stmt->fetchAll();
-             print_r($details);
+             //print_r($details);
              foreach($details as $row){
           ?>
               <tr>
@@ -135,11 +135,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
                 <td><?php echo $row->createddate;?></td>
                 <td><?php echo $row->mailingcity;?></td>
                 <td><?php echo $row->mobilephone;?></td>
-                <td><a href="javascript:void()"  data-toggle="modal" data-target="#myModal-<?php echo $row->sfid;?>" class="btn btn-primary">Edit</a>
+                <td><a href="javascript:void()"  data-toggle="modal" data-target="#myModal-<?php echo $row->id;?>" class="btn btn-primary">Edit</a>
               </tr>
               
               <!-- Modal -->
-            <div id="myModal-<?php echo $row->sfid;?>" class="modal fade" role="dialog">
+            <div id="myModal-<?php echo $row->id;?>" class="modal fade" role="dialog">
               <div class="modal-dialog">
                 <!-- Modal content-->
                 <div class="modal-content">
