@@ -79,7 +79,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
 </nav>
 
 <?php
-  //$insql1 = 'ALTER TABLE Postgrescontact ADD COLUMN Primatycol INT AUTO_INCREMENT UNIQUE FIRST;';
+  $insql = 'Delete from Postgrescontact;';
+  $instmt = $pdo->prepare($insql1);
+  $instmt->execute(); 
+  $insql1 = 'ALTER TABLE Postgrescontact DROP COLUMN ID;';
+  $instmt1 = $pdo->prepare($insql1);
+  $instmt1->execute(); 
+  $insql2 = 'ALTER TABLE Postgrescontact ADD ID INT IDENTITY CONSTRAINT PK_Postgrescontact PRIMARY KEY CLUSTERED;';
+  $instmt2 = $pdo->prepare($insql2);
+  $instmt2->execute();
+  
+    //$insql1 = 'ALTER TABLE Postgrescontact ADD COLUMN Primatycol INT AUTO_INCREMENT UNIQUE FIRST;';
   //$instmt1 = $pdo->prepare($insql1);
   //$instmt1->execute(); 
   //$insql2 = 'CREATE TABLE Postgrescontact AS (SELECT * FROM salesforce.contact WHERE 1=2);';
