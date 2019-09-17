@@ -85,9 +85,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
   //$insql1 = 'ALTER TABLE Postgrescontact DROP COLUMN ID;';
   //$instmt1 = $pdo->prepare($insql1);
   //$instmt1->execute(); 
-  //$insql2 = 'ALTER TABLE Postgrescontact ADD ID INT IDENTITY;';
-  //$instmt2 = $pdo->prepare($insql2);
-  //$instmt2->execute();
+  $insql2 = 'ALTER TABLE Postgrescontact ADD id INT PRIMARY KEY AUTO_INCREMENT;';
+  $instmt2 = $pdo->prepare($insql2);
+  $instmt2->execute();
   
     //$insql1 = 'ALTER TABLE Postgrescontact ADD COLUMN Primatycol INT AUTO_INCREMENT UNIQUE FIRST;';
   //$instmt1 = $pdo->prepare($insql1);
