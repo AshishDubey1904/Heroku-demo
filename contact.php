@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
   //$insql1 = 'ALTER TABLE Postgrescontact DROP COLUMN ID;';
   //$instmt1 = $pdo->prepare($insql1);
   //$instmt1->execute(); 
-  $insql2 = 'ALTER TABLE Postgrescontact ADD ID int NOT NULL IDENTITY (1,1), CONSTRAINT PK_Postgrescontact PRIMARY KEY CLUSTERED (ID);';
+  $insql2 = 'ALTER TABLE Postgrescontact ADD COLUMN ID BIGSERIAL PRIMARY KEY;';
   $instmt2 = $pdo->prepare($insql2);
   $instmt2->execute();
   
