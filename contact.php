@@ -120,7 +120,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
           ?>
               <tr>
                 <td><?php echo $row->firstname;?></td>
-                <td><?php echo $row->firstname;?></td>
                 <td><?php echo $row->lastname;?></td>
                 <td><?php echo $row->email;?></td>
                 <td><?php echo $row->createddate;?></td>
