@@ -130,7 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
              $chechit =   $row->pull_into_sfdc_c;
           ?>
               <tr>
-                <td><?php if($chechit == 1) echo 'False' else echo 'True' ?></td>
+                <td><?php if($row->pull_into_sfdc_c == 1) echo 'False'; else echo 'True'; ?></td>
                 <td><?php echo $row->firstname;?></td>
                 <td><?php echo $row->lastname;?></td>
                 <td><?php echo $row->email;?></td>
@@ -154,7 +154,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
                         <div class="col-md-12">
                           <div class="form-group">
                             <label>Send To Salesforce:</label>
-                            <input type="checkbox" name="pull_into_sfdc__c" class="form-control" value"<?=$chechit?>" checked"<?=$chechit?>"  >
+                            <input type="checkbox" name="pull_into_sfdc__c" class="form-control" value"<?=$row->pull_into_sfdc_c ?>" checked"<?=$row->pull_into_sfdc_c ?>"  >
                           </div>
                           <div class="form-group">
                             <label>First Name:</label>
