@@ -154,7 +154,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
                         <div class="col-md-12">
                           <div class="form-group">
                             <label>Send To Salesforce:</label>
-                            <input type="checkbox" name="pull_into_sfdc__c" class="form-control" value="<?=$chechit>" checked="<?=$chechit>"  >
+                            <input type="checkbox" name="pull_into_sfdc__c" class="form-control" value"<?=$chechit?>" checked"<?=$chechit?>"  >
                           </div>
                           <div class="form-group">
                             <label>First Name:</label>
