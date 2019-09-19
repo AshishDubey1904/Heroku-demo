@@ -153,7 +153,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
                         <div class="col-md-12">
                           <div class="form-group">
                             <label>First Name:</label>
-                            <input type="checkbox" name="pull_into_sfdc__c" class="form-control" value="<?php echo $row->pull_into_sfdc__c;?>">
+                            <input type="checkbox" name="pull_into_sfdc__c" class="form-control" value="<?php $row->pull_into_sfdc__c ?>">
                           </div>
                           <div class="form-group">
                             <label>First Name:</label>
