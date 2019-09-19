@@ -22,7 +22,7 @@
 <?php
   $status='';
 if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['New_record'])){
-  $insql = "insert into Postgrescontact(pull_into_sfdc__c,firstname,lastname,email,mailingcity,mobilephone) VALUES('$_POST[pull_into_sfdc__c]','$_POST[firstname]','$_POST[lastname]','$_POST[email]','$_POST[mailingcity]','$_POST[mobilephone]') ";
+  $insql = "insert into Postgrescontact(firstname,lastname,email,mailingcity,mobilephone) VALUES('$_POST[firstname]','$_POST[lastname]','$_POST[email]','$_POST[mailingcity]','$_POST[mobilephone]') ";
   $instmt = $pdo->prepare($insql);
   if($instmt->execute()){
    $status='<div class="alert alert-success  alert-dismissible fade in">
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['New_record'])){
 <?php
   $status='';
 if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
-  $insql = "update Postgrescontact set pull_into_sfdc__c='$_POST[pull_into_sfdc__c]',firstname='$_POST[firstname]', lastname='$_POST[lastname]', email='$_POST[email]', mailingcity='$_POST[mailingcity]', mobilephone='$_POST[mobilephone]' where id='$_POST[id]' ";
+  $insql = "update Postgrescontact set firstname='$_POST[firstname]', lastname='$_POST[lastname]', email='$_POST[email]', mailingcity='$_POST[mailingcity]', mobilephone='$_POST[mobilephone]' where id='$_POST[id]' ";
   $instmt = $pdo->prepare($insql);
   if($instmt->execute()){
    $status='<div class="alert alert-success  alert-dismissible fade in">
@@ -119,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
         <a href="javascript:void()"  data-toggle="modal" data-target="#myModal" class="btn btn-primary">NEW Contact</a><hr/>
           <table class="table" id="mytable">
           <thead>
-          <th>Send to SFDC</th><th>Fisrt Name</th><th>Last Name</th><th>Email</th><th>Created Date</th><th>Mailing City</th><th>Mobile</th><th>Options</th>
+          <th>Fisrt Name</th><th>Last Name</th><th>Email</th><th>Created Date</th><th>Mailing City</th><th>Mobile</th><th>Options</th>
             </thead>
             <tbody>
           <?php
@@ -129,7 +129,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
              foreach($details as $row){
           ?>
               <tr>
-                <td><?php if($row->pull_into_sfdc__c == 1) echo 'True'; else echo 'False';?></td>
                 <td><?php echo $row->firstname;?></td>
                 <td><?php echo $row->lastname;?></td>
                 <td><?php echo $row->email;?></td>
