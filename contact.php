@@ -129,7 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
              foreach($details as $row){
           ?>
               <tr>
-                <td><?php echo $row->pull_into_sfdc__c;?></td>
+                <td><?php if($row->pull_into_sfdc__c == 1) echo 'True'; else echo 'False';?></td>
                 <td><?php echo $row->firstname;?></td>
                 <td><?php echo $row->lastname;?></td>
                 <td><?php echo $row->email;?></td>
@@ -153,7 +153,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
                         <div class="col-md-12">
                           <div class="form-group">
                             <label>First Name:</label>
-                            <input type="text" name="pull_into_sfdc__c" class="form-control" value="<?php echo $row->pull_into_sfdc__c;?>">
+                            <input type="checkbox" name="pull_into_sfdc__c" class="form-control" value="<?php echo $row->pull_into_sfdc__c;?>">
                           </div>
                           <div class="form-group">
                             <label>First Name:</label>
