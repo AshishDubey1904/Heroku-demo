@@ -130,7 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['Edit_record'])){
              $chechit =   $row->pull_into_sfdc_c;
           ?>
               <tr>
-                <td><?php if($chechit == 1) echo 'True'; else echo 'False'; ?></td>
+                <td><?php if($chechit == 1) echo 'False'; else echo 'True'; ?></td>
                 <td><?php echo $row->firstname;?></td>
                 <td><?php echo $row->lastname;?></td>
                 <td><?php echo $row->email;?></td>
